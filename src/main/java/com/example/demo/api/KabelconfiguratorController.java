@@ -9,6 +9,7 @@ import java.util.List;
 
 @RequestMapping("api/kabelconfigurator")
 @RestController
+@CrossOrigin("*")
 public class KabelconfiguratorController {
 
     private final KabelService kabelService;
