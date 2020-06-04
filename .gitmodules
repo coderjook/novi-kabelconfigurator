@@ -1,0 +1,3 @@
+[submodule "novi-kabelconfigurator"]
+	path = novi-kabelconfigurator
+	url = https://github.com/coderjook/novi-kabelconfigurator.git
