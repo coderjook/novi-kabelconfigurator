@@ -15,6 +15,9 @@ public class Haspel {
     private String configurator;
     private double inkoopprijs;
     private int prijsper;
+    private double breedte_haspel;
+    private double diameter_kern_haspel;
+    private double diameter_haspel;
 
     public Haspel(){}
 
@@ -23,13 +26,19 @@ public class Haspel {
                   @JsonProperty("merk")String merk,
                   @JsonProperty("configurator")String configurator,
                   @JsonProperty("inkoopprijs")double inkoopprijs,
-                  @JsonProperty("prijsper")int prijsper) {
+                  @JsonProperty("prijsper")int prijsper,
+                  @JsonProperty("breedte_haspel")double breedte_haspel,
+                  @JsonProperty("diameter_kern_haspel")double diameter_kern_haspel,
+                  @JsonProperty("diameter_haspel")double diameter_haspel) {
         this.artikelnummer = artikelnummer;
         this.typenummer = typenummer;
         this.merk = merk;
         this.configurator = configurator;
         this.inkoopprijs = inkoopprijs;
         this.prijsper = prijsper;
+        this.breedte_haspel = breedte_haspel;
+        this.diameter_kern_haspel = diameter_kern_haspel;
+        this.diameter_haspel = diameter_haspel;
     }
 
     public int getArtikelnummer() {
@@ -78,5 +87,29 @@ public class Haspel {
 
     public void setPrijsper(int prijsper) {
         this.prijsper = prijsper;
+    }
+
+    public double getBreedte_haspel() {
+        return breedte_haspel;
+    }
+
+    public void setBreedte_haspel(double breedte_haspel) {
+        this.breedte_haspel = breedte_haspel;
+    }
+
+    public double getDiameter_kern_haspel() {
+        return diameter_kern_haspel;
+    }
+
+    public void setDiameter_kern_haspel(double diameter_kern_haspel) {
+        this.diameter_kern_haspel = diameter_kern_haspel;
+    }
+
+    public double getDiameter_haspel() {
+        return diameter_haspel;
+    }
+
+    public void setDiameter_haspel(double diameter_haspel) {
+        this.diameter_haspel = diameter_haspel;
     }
 }

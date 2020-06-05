@@ -146,12 +146,16 @@ public class KabelconfiguratorDB implements KabelDao, ConnectorDao, HaspelDao, T
                 "merk, " +
                 "configurator, " +
                 "inkoopprijs, " +
-                "prijsper " +
+                "prijsper, " +
+                "breedte_haspel, " +
+                "diameter_kern_haspel, " +
+                "diameter_haspel " +
                 ") "+
-                "VALUES (?,?,?,?,?,?)";
+                "VALUES (?,?,?,?,?,?,?,?,?)";
         jdbcTemplate.update(
                 sql, haspel.getArtikelnummer(), haspel.getTypenummer(), haspel.getMerk(),
-                haspel.getConfigurator(), haspel.getInkoopprijs(), haspel.getPrijsper()
+                haspel.getConfigurator(), haspel.getInkoopprijs(), haspel.getPrijsper(), haspel.getBreedte_haspel(),
+                haspel.getDiameter_kern_haspel(), haspel.getDiameter_haspel()
         );
         return 1;
     }
@@ -159,7 +163,7 @@ public class KabelconfiguratorDB implements KabelDao, ConnectorDao, HaspelDao, T
     @Override
     public List<Haspel> getHaspels() {
         final String sql ="SELECT artikelnummer, typenummer, merk, configurator, " +
-                "inkoopprijs, prijsper FROM Haspel";
+                "inkoopprijs, prijsper, breedte_haspel, diameter_kern_haspel, diameter_haspel FROM Haspel";
         return jdbcTemplate.query(sql, (resultSet, i) -> {
             int artikelnummer = resultSet.getInt("artikelnummer");
             String typenummer = resultSet.getString("typenummer");
@@ -167,7 +171,11 @@ public class KabelconfiguratorDB implements KabelDao, ConnectorDao, HaspelDao, T
             String configurator = resultSet.getString("configurator");
             double inkoopprijs = resultSet.getDouble("inkoopprijs");
             int prijsper = resultSet.getInt("prijsper");
-            return new Haspel(artikelnummer, typenummer, merk, configurator, inkoopprijs, prijsper);
+            double breedte_haspel = resultSet.getDouble("breedte_haspel");
+            double diameter_kern_haspel = resultSet.getDouble("diameter_kern_haspel");
+            double diameter_haspel = resultSet.getDouble("diameter_haspel");
+            return new Haspel(artikelnummer, typenummer, merk, configurator, inkoopprijs, prijsper, breedte_haspel,
+                    diameter_kern_haspel, diameter_haspel);
         });
     }
 
