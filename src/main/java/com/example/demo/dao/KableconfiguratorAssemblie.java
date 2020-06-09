@@ -30,12 +30,13 @@ public class KableconfiguratorAssemblie implements AssemblieDao {
                 "artnr_afw_conn_a, " +
                 "artnr_afw_conn_b, " +
                 "artnr_haspel, " +
-                "aant_trns_krimp, " +
-                "lengte_trns_krimp) " +
-                "VALUES (?, ?, 9999,9999,9999,9999,9999,9999,9999,9999)";
+                "trans_krimp, " +
+                "lengte_trans_krimp) " +
+                "VALUES (?, ?, ?,?,?,?,?,?,?,?)";
         jdbcTemplate.update(
-                sql, id_assemblie, assemblie.getArtnr_kabel()
-        );
+                sql, id_assemblie, assemblie.getArtnr_kabel(), assemblie.getLengte_kabel(), assemblie.getArtnr_connector_a(),
+                assemblie.getArtnr_connector_b(),assemblie.getArtnr_afw_conn_a(),assemblie.getArtnr_afw_conn_b(),
+                assemblie.getArtnr_haspel(),assemblie.getTrans_krimp(),assemblie.getLengte_trans_krimp());
         return 1;
     }
 

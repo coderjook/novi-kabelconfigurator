@@ -1,8 +1,6 @@
 package com.example.demo.dao;
 
 import com.example.demo.model.Assemblie;
-import com.example.demo.model.Kabel;
-import com.example.demo.model.Product;
 
 import java.util.List;
 import java.util.UUID;
