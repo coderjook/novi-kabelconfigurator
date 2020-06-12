@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RequestMapping("api/kabelconfigurator")
 @RestController
@@ -45,6 +46,9 @@ public class KabelconfiguratorController {
     @PostMapping("/tulegroep")
     public void addTulegroep(@RequestBody Tulegroep tulegroep) { tulegroepService.addTulegroep(tulegroep);}
 
+    @GetMapping("/assemblie")
+    public List<Assemblie> getAssemblies(){ return assemblieService.getAssemblies(); }
+
     @GetMapping("/kabel")
     public List<Kabel> getKabels(){ return kabelService.getKabels(); }
 
@@ -60,6 +64,11 @@ public class KabelconfiguratorController {
     @DeleteMapping(path = "kabel/{artikelnummer}")
     public void deleteKabel(@PathVariable("artikelnummer") int artikelnummer) {
         kabelService.deleteKabel(artikelnummer);
+    }
+
+    @DeleteMapping(path = "assemblie/{id_assemblie}")
+    public void deleteAssemblie(@PathVariable("id_assemblie") UUID id_assemblie) {
+        assemblieService.deleteAssemblie(id_assemblie);
     }
 
     @PutMapping("/kabel")

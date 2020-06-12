@@ -19,7 +19,7 @@ public interface AssemblieDao {
 
     List<Assemblie> getAssemblies();
 
-    int deleteAssemblieByIdAssemblie(UUID id_assemblie);
+    int deleteAssemblieByArtikelnummer(UUID id_assemblie);
 
     int updateKabelByIdAssemblie(Assemblie assemblie);
 

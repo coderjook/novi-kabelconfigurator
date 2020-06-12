@@ -20,6 +20,8 @@ public class Assemblie {
     private int artnr_haspel;
     private String trans_krimp;
     private int lengte_trans_krimp;
+    private long artnr_assemblie;
+
 
     //constructor
     public Assemblie() {
@@ -34,7 +36,9 @@ public class Assemblie {
                      @JsonProperty("artnr_afw_conn_b")int artnr_afw_conn_b,
                      @JsonProperty("artnr_haspel")int artnr_haspel,
                      @JsonProperty("trans_krimp")String trans_krimp,
-                     @JsonProperty("lengte_trans_krimp")int lengte_trans_krimp) {
+                     @JsonProperty("lengte_trans_krimp")int lengte_trans_krimp,
+                     @JsonProperty("artnr_assemblie")long artnr_assemblie)
+    {
         this.id_assemblie = id_assemblie;
         this.artnr_kabel = artnr_kabel;
         this.lengte_kabel = lengte_kabel;
@@ -45,6 +49,7 @@ public class Assemblie {
         this.artnr_haspel = artnr_haspel;
         this.trans_krimp = trans_krimp;
         this.lengte_trans_krimp = lengte_trans_krimp;
+        this.artnr_assemblie = artnr_assemblie;
     }
 
     //methods
@@ -129,4 +134,8 @@ public class Assemblie {
     public void setLengte_trans_krimp(int lengte_trans_krimp) {
         this.lengte_trans_krimp = lengte_trans_krimp;
     }
+
+    public long getArtnr_assemblie() {return artnr_assemblie; }
+
+    public void setArtnr_assemblie(long artnr_assemblie) { this.artnr_assemblie = artnr_assemblie; }
 }
